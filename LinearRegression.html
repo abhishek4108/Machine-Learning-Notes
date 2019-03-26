@@ -1,0 +1,186 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js">
+<link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+<link rel="stylesheet" href="https://gitcdn.xyz/repo/goessner/mdmath/master/css/texmath.css">
+<link rel="stylesheet" href="https://gitcdn.xyz/repo/goessner/mdmath/master/css/vscode-texmath.css">
+
+</head><body class="markdown-body">
+<h1 id="linear-regression-1" data-line="0" class="code-line">Linear Regression</h1>
+<br>
+<!-- toc -->
+<ul>
+<li data-line="5" class="code-line"><a href="#linear-regression">Linear Regression</a>
+<ul>
+<li data-line="6" class="code-line"><a href="#what-is-a-linear-regression">What is a linear regression?</a></li>
+<li data-line="7" class="code-line"><a href="#how-to-find-the-best-regression-line">How to find the best regression line?</a></li>
+<li data-line="8" class="code-line"><a href="#what-are-the-performance-evaluation-metrics-in-regression">What are the performance evaluation metrics in Regression?</a></li>
+<li data-line="9" class="code-line"><a href="#what-is-multi-variate-regression">What is Multi-Variate Regression?</a></li>
+<li data-line="10" class="code-line"><a href="#how-to-implement-regression-in-python">How to implement regression in Python?</a></li>
+<li data-line="11" class="code-line"><a href="#assumptions-in-regression">Assumptions in Regression</a></li>
+<li data-line="12" class="code-line"><a href="#what-if-these-assumptions-get-violated">What if these assumptions get violated ?</a></li>
+<li data-line="13" class="code-line"><a href="#interpretation-of-regression-plots">Interpretation of Regression Plots</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2 id="what-is-a-linear-regression-1" data-line="16" class="code-line">What is a linear regression?</h2>
+<p data-line="17" class="code-line">Linear Regression is used for predictive analysis. It is a technique which explains the degree of relationship between two or more variables (multiple regression, in that case) using a best fit line / plane.</p>
+<p data-line="19" class="code-line">Regression technique tries to fit a single line through a scatter plot.  The simplest form of regression with one dependent and one independent variable is defined by the formula:</p>
+<p data-line="21" class="code-line">Y = aX + b</p>
+<h2 id="how-to-find-the-best-regression-line-1" data-line="23" class="code-line">How to find the best regression line?</h2>
+<p data-line="25" class="code-line">Regression line establishes a relationship between independent and dependent variable(s). A line which can explain the relationship better is said to be best fit line.</p>
+<p data-line="27" class="code-line">The best fit line tends to return most accurate value of Y based on X  i.e. causing a minimum difference between actual and predicted value of Y (lower prediction error).</p>
+<p data-line="29" class="code-line">Here are some methods which check for error:</p>
+<ol>
+<li data-line="31" class="code-line">Sum of all errors (∑error) : Using this method leads to cancellation of positive and negative errors, which certainly isn’t our motive. Hence, it is not the right method.</li>
+<li data-line="32" class="code-line">Sum of absolute value of all errors (∑|error|)</li>
+<li data-line="33" class="code-line">Sum of square of all errors (∑error^2): we penalize the error value much more compared to ∑|error|</li>
+</ol>
+<p data-line="35" class="code-line">Coefficients a and b are derived based on minimizing the sum of squared difference of distance between data points and regression line</p>
+<p data-line="37" class="code-line">There are two common algorithms to find the right coefficients for minimum sum of squared errors,<br/>
+<strong>1. <a href="http://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares">Ordinary Least Sqaure (OLS, used in python library sklearn)</a></strong><br/>
+<strong>2. <a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient descent</a></strong></p>
+<h2 id="what-are-the-performance-evaluation-metrics-in-regression-1" data-line="41" class="code-line">What are the performance evaluation metrics in Regression?</h2>
+<p data-line="42" class="code-line">Most common metric to judge the performance of regression models is <strong>R-square</strong>.
+R² measures, “How much the change in output variable (y) is explained by the change in input variable(x).&quot;</p>
+<p data-line="45" class="code-line"><img src="/d:/GitHub/Machine-Learning-Notes/images/Rsquare.png" alt="" class="loading" id="image-hash-50ac8c0818e2608aa90227cb1de4bc931e58ecae3fb0f5955ecbdbb3e8524cf2"></p>
+<p data-line="47" class="code-line">R-squared is always between 0 and 1:</p>
+<ul>
+<li data-line="49" class="code-line">0 indicates that the model explains NIL variability in the response data around its mean.</li>
+<li data-line="50" class="code-line">1 indicates that the model explains full variability in the response data around its mean.</li>
+</ul>
+<p data-line="52" class="code-line">In general, higher the R², more robust will be the model.</p>
+<p data-line="54" class="code-line">One <strong>disadvantage</strong> of R-squared is that it can only increase as predictors are added to the regression model. This increase is artificial when predictors are not actually improving the model’s fit. To cure this, we use “Adjusted R-squared”.</p>
+<p data-line="56" class="code-line"><strong>Adjusted R-squared</strong> is the change of R-square that adjusts the number of terms in a model.</p>
+<ul>
+<li data-line="57" class="code-line">It calculates the proportion of the variation in the dependent variable accounted by the explanatory variables. It incorporates the model’s degrees of freedom.</li>
+<li data-line="58" class="code-line">It will decrease as predictors are added if the increase in model fit does not make up for the loss of degrees of freedom.</li>
+<li data-line="59" class="code-line">Likewise, it will increase as predictors are added if the increase in model fit is worthwhile.</li>
+<li data-line="60" class="code-line">It should always be used with models with more than one predictor variable.</li>
+<li data-line="61" class="code-line">It is interpreted as the proportion of total variance that is explained by the model.</li>
+</ul>
+<img src="images/adjustedRsquare.png">
+<p data-line="65" class="code-line">where
+R<sup>2</sup> = Sample R square <br />
+p = Number of predictors <br />
+N = total sample size <br /></p>
+<h2 id="what-is-multi-variate-regression-1" data-line="70" class="code-line">What is Multi-Variate Regression?</h2>
+<p data-line="71" class="code-line">Process to deal with multiple independent variables related to a dependent variable.</p>
+<p data-line="73" class="code-line">In an multiple regression model, we try to predict</p>
+ <img src="images/MultipleRegression.png">
+<p data-line="77" class="code-line">Here, b1, b2, b3 …bk are slopes for each independent variables X1, X2, X3….Xk and a is intercept.</p>
+<h2 id="how-to-implement-regression-in-python-1" data-line="79" class="code-line">How to implement regression in Python?</h2>
+<pre><code data-line="81" class="code-line language-python"><div><span class="hljs-comment">#Import Library</span>
+<span class="hljs-comment">#Import other necessary libraries like pandas, numpy</span>
+<span class="hljs-keyword">from</span> pandas <span class="hljs-keyword">import</span> Series, DataFrame
+<span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LinearRegression
+
+<span class="hljs-comment">#Load Train and Test datasets</span>
+<span class="hljs-comment">#Identify feature and response variable(s) and values must be numeric and numpy arrays</span>
+<span class="hljs-keyword">import</span> test <span class="hljs-keyword">and</span> train file
+train = pd.read_csv(<span class="hljs-string">'Train.csv'</span>)
+test = pd.read_csv(<span class="hljs-string">'test.csv'</span>)
+
+<span class="hljs-comment">#splitting into training and cv for cross validation</span>
+X = train.loc[:,[<span class="hljs-string">'Outlet_Establishment_Year'</span>,<span class="hljs-string">'Item_MRP'</span>]]
+x_train, x_cv, y_train, y_cv = train_test_split(X,train.Item_Outlet_Sales)
+
+<span class="hljs-comment"># Create linear regression object</span>
+lreg = LinearRegression()
+
+<span class="hljs-comment"># Train the model using the training sets and check score</span>
+lreg.fit(x_train,y_train)
+lreg.score(x_train, y_train)
+
+<span class="hljs-comment">#Equation coefficient and Intercept</span>
+print(<span class="hljs-string">'Coefficient: \n'</span>, lreg.coef_)
+print(<span class="hljs-string">'Intercept: \n'</span>, lreg.intercept_)
+
+<span class="hljs-comment">#Predict Output</span>
+pred = lreg.predict(x_cv)
+
+<span class="hljs-comment">#calculating mse</span>
+mse = np.mean((pred - y_cv)**<span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># calculating coefficients</span>
+coeff = DataFrame(x_train.columns)
+coeff[<span class="hljs-string">'Coefficient Estimate'</span>] = Series(lreg.coef_)
+coeff
+</div></code></pre>
+<h2 id="assumptions-in-regression-1" data-line="121" class="code-line">Assumptions in Regression</h2>
+<p data-line="122" class="code-line">Regression is a parametric approach. ‘Parametric’ means it makes assumptions about data for the purpose of analysis.</p>
+<p data-line="124" class="code-line">Let’s look at the important assumptions in regression analysis:</p>
+<ol>
+<li data-line="126" class="code-line">There should be a linear and additive relationship between dependent (response) variable and independent (predictor) variable(s). A linear relationship suggests that a change in response Y due to one unit change in X¹ is constant, regardless of the value of X¹. An additive relationship suggests that the effect of X¹ on Y is independent of other variables.</li>
+<li data-line="127" class="code-line">There should be no correlation between the residual (error) terms. Absence of this phenomenon is known as <strong>Autocorrelation</strong>.</li>
+<li data-line="128" class="code-line">The independent variables should not be correlated. Absence of this phenomenon is known as <strong>multicollinearity</strong>.</li>
+<li data-line="129" class="code-line">The error terms must have constant variance. This phenomenon is known as <strong>homoskedasticity</strong>. The presence of non-constant variance is referred to heteroskedasticity.</li>
+<li data-line="130" class="code-line">The error terms must be normally distributed.</li>
+</ol>
+<h2 id="what-if-these-assumptions-get-violated-1" data-line="132" class="code-line">What if these assumptions get violated ?</h2>
+<p data-line="133" class="code-line">Let’s dive into specific assumptions and learn about their outcomes (if violated):</p>
+<ol>
+<li data-line="135" class="code-line">
+<p data-line="135" class="code-line"><strong>Linear and Additive</strong>:</p>
+<p data-line="137" class="code-line">If you fit a linear model to a non-linear, non-additive data set, the regression algorithm would fail to capture the trend mathematically, thus resulting in an inefficient model. Also, this will result in erroneous predictions on an unseen data set.</p>
+<p data-line="139" class="code-line"><strong>How to check</strong>: Look for residual vs fitted value plots (explained below). Also, you can include polynomial terms (X, X², X³) in your model to capture the non-linear effect.</p>
+</li>
+<li data-line="142" class="code-line">
+<p data-line="142" class="code-line"><strong>Autocorrelation</strong>:</p>
+<p data-line="144" class="code-line">The presence of correlation in error terms drastically reduces model’s accuracy. This usually occurs in time series models where the next instant is dependent on previous instant. If the error terms are correlated, the estimated standard errors tend to underestimate the true standard error.</p>
+<p data-line="146" class="code-line">If this happens, it causes confidence intervals and prediction intervals to be narrower.</p>
+<p data-line="148" class="code-line">Also, lower standard errors would cause the associated p-values to be lower than actual. This will make us incorrectly conclude a parameter to be statistically significant.</p>
+<p data-line="150" class="code-line"><strong>How to check</strong>: Look for Durbin – Watson (DW) statistic. It must lie between 0 and 4. If DW = 2, implies no autocorrelation, 0 &lt; DW &lt; 2 implies positive autocorrelation while 2 &lt; DW &lt; 4 indicates negative autocorrelation. Also, you can see residual vs time plot and look for the seasonal or correlated pattern in residual values.</p>
+</li>
+<li data-line="153" class="code-line">
+<p data-line="153" class="code-line"><strong>Multicollinearity</strong>:</p>
+<p data-line="155" class="code-line">This phenomenon exists when the independent variables are found to be moderately or highly correlated. It becomes difficult to find out which variable is actually contributing to predict the response variable.</p>
+<p data-line="157" class="code-line">Another point, with presence of correlated predictors, the standard errors tend to increase. And, with large standard errors, the confidence interval becomes wider leading to less precise estimates of slope parameters.</p>
+<p data-line="159" class="code-line">Also, when predictors are correlated, the estimated regression coefficient of a correlated variable depends on which other predictors are available in the model. If this happens, you’ll end up with an incorrect conclusion that a variable strongly / weakly affects target variable. Since, even if you drop one correlated variable from the model, its estimated regression coefficients would change. That’s not good!</p>
+<p data-line="161" class="code-line"><strong>How to check</strong>: You can use scatter plot to visualize correlation effect among variables. Also, you can also use VIF factor. VIF value &lt;= 4 suggests no multicollinearity whereas a value of &gt;= 10 implies serious multicollinearity. Above all, a correlation table should also solve the purpose.</p>
+</li>
+<li data-line="164" class="code-line">
+<p data-line="164" class="code-line"><strong>Heteroskedasticity</strong>:</p>
+<p data-line="166" class="code-line">The presence of non-constant variance in the error terms results in heteroskedasticity. Generally, non-constant variance arises in presence of outliers or extreme leverage values. Look like, these values get too much weight, thereby disproportionately influences the model’s performance. When this phenomenon occurs, the confidence interval for out of sample prediction tends to be unrealistically wide or narrow.</p>
+<p data-line="168" class="code-line"><strong>How to check</strong>: You can look at residual vs fitted values plot. If heteroskedasticity exists, the plot would exhibit a funnel shape pattern (shown in next section). Also, you can use Breusch-Pagan / Cook – Weisberg test or White general test to detect this phenomenon.</p>
+</li>
+<li data-line="171" class="code-line">
+<p data-line="171" class="code-line"><strong>Normal Distribution of error terms</strong>:</p>
+<p data-line="173" class="code-line">If the error terms are non-normally distributed, confidence intervals may become too wide or narrow. Once confidence interval becomes unstable, it leads to difficulty in estimating coefficients based on minimization of least squares. Presence of non – normal distribution suggests that there are a few unusual data points which must be studied closely to make a better model.</p>
+<p data-line="175" class="code-line"><strong>How to check</strong>: You can look at QQ plot (shown below). You can also perform statistical tests of normality such as Kolmogorov-Smirnov test, Shapiro-Wilk test.</p>
+</li>
+</ol>
+<h2 id="interpretation-of-regression-plots-1" data-line="177" class="code-line">Interpretation of Regression Plots</h2>
+<ol>
+<li data-line="178" class="code-line">
+<p data-line="178" class="code-line"><strong>Residual vs Fitted Values</strong></p>
+ <img src="images/residual.webp">
+<p data-line="182" class="code-line"><strong>Solution</strong>: To overcome the issue of non-linearity, you can do a non linear transformation of predictors such as log (X), √X or X² transform the dependent variable. To overcome heteroskedasticity, a possible way is to transform the response variable such as log(Y) or √Y. Also, you can use weighted least square method to tackle heteroskedasticity.</p>
+<pre><code data-line="184" class="code-line language-python"><div>x_plot = plt.scatter(pred_cv, (pred_cv - y_cv), c=<span class="hljs-string">'b'</span>)
+plt.hlines(y=<span class="hljs-number">0</span>, xmin= <span class="hljs-number">-1000</span>, xmax=<span class="hljs-number">5000</span>)
+plt.title(<span class="hljs-string">'Residual plot'</span>)
+</div></code></pre>
+</li>
+<li data-line="190" class="code-line">
+<p data-line="190" class="code-line"><strong>Normal Q-Q Plot</strong></p>
+<p data-line="192" class="code-line"><img src="vscode-resource:/d:/GitHub/Machine-Learning-Notes/images/quantile.webp" alt="" class="loading" id="image-hash-f4f1ea423ca1ac5bd4f58f89045c634b9c98ee1e62d3d0abed0c5971d5f29ccb"></p>
+<p data-line="194" class="code-line">This q-q or quantile-quantile is a scatter plot which helps us validate the assumption of normal distribution in a data set. Using this plot we can infer if the data comes from a normal distribution. If yes, the plot would show fairly straight line. Absence of normality in the errors can be seen with deviation in the straight line.</p>
+<p data-line="196" class="code-line"><strong>Solution</strong>: If the errors are not normally distributed, non – linear transformation of the variables (response or predictors) can bring improvement in the model.</p>
+</li>
+<li data-line="198" class="code-line">
+<p data-line="198" class="code-line"><strong>Scale Location Plot</strong></p>
+<p data-line="200" class="code-line"><img src="vscode-resource:/d:/GitHub/Machine-Learning-Notes/images/hetero.webp" alt="" class="loading" id="image-hash-0ad5ce520b0c1609912ad5a965e0bd7691c45b5a311be819461b8507920a1824"></p>
+<p data-line="202" class="code-line">This plot is also used to detect homoskedasticity (assumption of equal variance). It shows how the residual are spread along the range of predictors. It’s similar to residual vs fitted value plot except it uses standardized residual values. Ideally, there should be no discernible pattern in the plot. This would imply that errors are normally distributed. But, in case, if the plot shows any discernible pattern (probably a funnel shape), it would imply non-normal distribution of errors.</p>
+<p data-line="204" class="code-line"><strong>Solution</strong>: Follow the solution for heteroskedasticity given in plot 1.</p>
+</li>
+<li data-line="206" class="code-line">
+<p data-line="206" class="code-line"><strong>Residuals vs Leverage Plot</strong></p>
+<p data-line="208" class="code-line"><img src="vscode-resource:/d:/GitHub/Machine-Learning-Notes/images/leverage.webp" alt="" class="loading" id="image-hash-617ab511a39f7d0bc97746eff9baec09c01a6ba6a56eab873c226f0795ed18b4"></p>
+<p data-line="210" class="code-line">Also known as Cook’s Distance plot. Cook’s distance attempts to identify the points which have more influence than other points. Such influential points tends to have a sizable impact of the regression line. In other words, adding or removing such points from the model can completely change the model statistics.</p>
+<p data-line="212" class="code-line"><strong>Solution</strong>: For influential observations which are nothing but outliers, if not many, you can remove those rows. Alternatively, you can scale down the outlier observation with maximum value in data or else treat those values as missing values.</p>
+</li>
+</ol>
+
+</body></html>
