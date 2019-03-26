@@ -3,14 +3,15 @@
 <br>
 <!-- toc -->
 
-- [What is a linear regression?](#What-is-a-linear-regression)
-- [How to find the best regression line?](#How-to-find-the-best-regression-line)
-- [What are the performance evaluation metrics in Regression?](#What-are-the-performance-evaluation-metrics-in-Regression)
-- [What is Multi-Variate Regression?](#What-is-Multi-Variate-Regression)
-- [How to implement regression in Python?](#How-to-implement-regression-in-Python)
-- [Assumptions in Regression](#Assumptions-in-Regression)
-- [What if these assumptions get violated ?](#What-if-these-assumptions-get-violated-)
-- [Interpretation of Regression Plots](#Interpretation-of-Regression-Plots)
+- [Linear Regression](#linear-regression)
+  - [What is a linear regression?](#what-is-a-linear-regression)
+  - [How to find the best regression line?](#how-to-find-the-best-regression-line)
+  - [What are the performance evaluation metrics in Regression?](#what-are-the-performance-evaluation-metrics-in-regression)
+  - [What is Multi-Variate Regression?](#what-is-multi-variate-regression)
+  - [How to implement regression in Python?](#how-to-implement-regression-in-python)
+  - [Assumptions in Regression](#assumptions-in-regression)
+  - [What if these assumptions get violated ?](#what-if-these-assumptions-get-violated)
+  - [Interpretation of Regression Plots](#interpretation-of-regression-plots)
 
 <!-- tocstop -->
 ## What is a linear regression?
@@ -42,7 +43,7 @@ There are two common algorithms to find the right coefficients for minimum sum o
 Most common metric to judge the performance of regression models is **R-square**.
 R² measures, “How much the change in output variable (y) is explained by the change in input variable(x).""
 
-![](images/Rsquare.webp?raw=true)
+![](images/Rsquare.png?raw=true)
 
 R-squared is always between 0 and 1:
 
