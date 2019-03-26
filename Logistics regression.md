@@ -3,13 +3,14 @@
 <br>
 <!-- toc -->
 
-- [What is a logistics regression?](#What-is-a-logistics-regression)
-- [Logistic Regression Predicts Probabilities](#Logistic-Regression-Predicts-Probabilities)
-- [Learning the Logistic Regression Model](#Learning-the-Logistic-Regression-Model)
-- [Types of Logistic Regression](#Types-of-Logistic-Regression)
-- [Performance of Logistics Regression Model](#Performance-of-Logistics-Regression-Model)
-  * [1. Confusion Matrix](#1-Confusion-Matrix)
-  * [2. ROC Curve](#2-ROC-Curve)
+- [Logistics Regression](#logistics-regression)
+  - [What is a logistics regression?](#what-is-a-logistics-regression)
+  - [Logistic Regression Predicts Probabilities](#logistic-regression-predicts-probabilities)
+  - [Learning the Logistic Regression Model](#learning-the-logistic-regression-model)
+  - [Types of Logistic Regression](#types-of-logistic-regression)
+  - [Performance of Logistics Regression Model](#performance-of-logistics-regression-model)
+    - [1. Confusion Matrix](#1-confusion-matrix)
+    - [2. ROC Curve](#2-roc-curve)
 
 <!-- tocstop -->
 
@@ -69,7 +70,7 @@ Three or more categories with ordering. Example: Movie rating from 1 to 5
 
 ### 1. Confusion Matrix
 
-![](images/confusionmatrix.png?raw=true)
+<img src="images/confusionmatrix.png">
 
 Accuracy =  (TP + TN) / (TP + FP + FN + TN)
 
@@ -87,4 +88,4 @@ Receiver Operating Characteristic(ROC) summarizes the model’s performance by e
 
 The area under curve (AUC), referred to as index of accuracy(A) or concordance index, is a perfect performance metric for ROC curve. Higher the area under curve, better the prediction power of the model. Below is a sample ROC curve. The ROC of a perfect predictive model has TP equals 1 and FP equals 0. This curve will touch the top left corner of the graph.
 
-![](images/roc.png?raw=true)
+<img src="images/roc.png" width="50%" height="50%">

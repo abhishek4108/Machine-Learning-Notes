@@ -61,8 +61,8 @@ One **disadvantage** of R-squared is that it can only increase as predictors are
 - It should always be used with models with more than one predictor variable.
 - It is interpreted as the proportion of total variance that is explained by the model.
 
-![](images/adjustedRsquare.png?raw=true)
-<br/>
+<img src="images/adjustedRsquare.png">
+
 where
 R<sup>2</sup>   = Sample R square
 p = Number of predictors
@@ -72,9 +72,9 @@ N = total sample size
  Process to deal with multiple independent variables related to a dependent variable.
 
  In an multiple regression model, we try to predict
- <br/>
-![](images/MultipleRegression.webp?raw=true)
-<br/>
+
+ <img src="images/MultipleRegression.png">
+
 Here, b1, b2, b3 …bk are slopes for each independent variables X1, X2, X3….Xk and a is intercept.
 
 ## How to implement regression in Python?
@@ -150,15 +150,15 @@ Also, when predictors are correlated, the estimated regression coefficient of a 
 
 ## Interpretation of Regression Plots
 1. **Residual vs Fitted Values**
-![](images/residual.webp?raw=true)
-<br/>
+<img src="images/residual.webp">
+
 **Solution**: To overcome the issue of non-linearity, you can do a non linear transformation of predictors such as log (X), √X or X² transform the dependent variable. To overcome heteroskedasticity, a possible way is to transform the response variable such as log(Y) or √Y. Also, you can use weighted least square method to tackle heteroskedasticity.
 ```python
 x_plot = plt.scatter(pred_cv, (pred_cv - y_cv), c='b')
 plt.hlines(y=0, xmin= -1000, xmax=5000)
 plt.title('Residual plot')
 ```
-2. **Normal Q-Q Plot**
+1. **Normal Q-Q Plot**
 ![](images/quantile.webp?raw=true)
 This q-q or quantile-quantile is a scatter plot which helps us validate the assumption of normal distribution in a data set. Using this plot we can infer if the data comes from a normal distribution. If yes, the plot would show fairly straight line. Absence of normality in the errors can be seen with deviation in the straight line.
 **Solution**: If the errors are not normally distributed, non – linear transformation of the variables (response or predictors) can bring improvement in the model.

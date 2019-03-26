@@ -1,6 +1,17 @@
 # Ensemble Decision Trees
 
 <br>
+- [Ensemble Decision Trees](#ensemble-decision-trees)
+  - [1. What are ensemble methods in tree based modeling ?](#1-what-are-ensemble-methods-in-tree-based-modeling)
+    - [2. What is Bagging? How does it work?](#2-what-is-bagging-how-does-it-work)
+  - [3. What is Random Forest ? How does it work?](#3-what-is-random-forest--how-does-it-work)
+    - [How it works?](#how-it-works)
+    - [Advantages of Random Forest](#advantages-of-random-forest)
+    - [Disadvantages of Random Forest](#disadvantages-of-random-forest)
+    - [Python implementation](#python-implementation)
+    - [R Code implementation](#r-code-implementation)
+  - [4. What is Boosting ? How does it work?](#4-what-is-boosting--how-does-it-work)
+    - [How does it work?](#how-does-it-work)
 
 ## 1. What are ensemble methods in tree based modeling ?
 Ensemble methods involve group of predictive models to achieve a better accuracy and model stability. Ensemble methods are known to impart supreme boost to tree based models.
@@ -40,7 +51,7 @@ It works in the following manner. Each tree is planted & grown as follows:
 3. Each tree is grown to the largest extent possible and  there is no pruning.
 4. Predict new data by aggregating the predictions of the ntree trees (i.e., majority votes for classification, average for regression).
 
-![](images\randomforest.png)
+<img src="images\randomforest.png" width="50%" height="50%">
 
 ### Advantages of Random Forest
 
