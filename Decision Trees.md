@@ -118,9 +118,9 @@ Here p and q is probability of success and failure respectively in that node. En
 
 Reduction in variance is an algorithm used for continuous target variables (regression problems). This algorithm uses the standard formula of variance to choose the best split. The split with lower variance is selected as the criteria to split the population:
 
-$$
+$
 Variance = \frac{\sum_{} (X - \bar X)^2}{n}
-$$
+$
 
 Above X-bar is mean of the values, X is actual and n is number of values.
 
@@ -140,7 +140,7 @@ Overfitting is one of the key challenges faced while modeling decision trees. We
 
 This can be done by using various parameters which are used to define a tree. First, lets look at the general structure of a decision tree:
 
-![](images/tree.png?raw=true =1000x)
+![](images/tree.png?raw=true)
 
 1. **Minimum samples for a node split**
     - Defines the minimum number of samples (or observations) which are required in a node to be considered for splitting.
