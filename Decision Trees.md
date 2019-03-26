@@ -3,22 +3,22 @@
 <br>
 <!-- toc -->
 
-- [1. What is a Decision Tree ? How does it work ?](#1-What-is-a-Decision-Tree-How-does-it-work)
-  * [Types of Decision Trees](#Types-of-Decision-Trees)
-  * [Important Terminology related to Decision Trees](#Important-Terminology-related-to-Decision-Trees)
-  * [Advantages](#Advantages)
-  * [Disadvantages](#Disadvantages)
-- [2. Regression Trees vs Classification Trees](#2-Regression-Trees-vs-Classification-Trees)
-- [3. How does a tree decide where to split?](#3-How-does-a-tree-decide-where-to-split)
-  * [Gini Index](#Gini-Index)
-  * [Chi-Square](#Chi-Square)
-  * [Information Gain](#Information-Gain)
-  * [Reduction in Variance](#Reduction-in-Variance)
-- [4. What are the key parameters of tree modeling and how can we avoid over-fitting in decision trees?](#4-What-are-the-key-parameters-of-tree-modeling-and-how-can-we-avoid-over-fitting-in-decision-trees)
-  * [Setting Constraints on Tree Size](#Setting-Constraints-on-Tree-Size)
-  * [Tree Pruning](#Tree-Pruning)
-- [5. Are tree based models better than linear models?](#5-Are-tree-based-models-better-than-linear-models)
-- [6. Working with Decision Trees in R and Python](#6-Working-with-Decision-Trees-in-R-and-Python)
+- [Decision Trees](#decision-trees)
+  - [1. What is a Decision Tree ? How does it work ?](#1-what-is-a-decision-tree--how-does-it-work)
+    - [Types of Decision Trees](#types-of-decision-trees)
+    - [Important Terminology related to Decision Trees](#important-terminology-related-to-decision-trees)
+    - [Advantages](#advantages)
+    - [Disadvantages](#disadvantages)
+  - [2. Regression Trees vs Classification Trees](#2-regression-trees-vs-classification-trees)
+  - [3. How does a tree decide where to split?](#3-how-does-a-tree-decide-where-to-split)
+    - [Chi-Square](#chi-square)
+    - [Information Gain](#information-gain)
+    - [Reduction in Variance](#reduction-in-variance)
+  - [4. What are the key parameters of tree modeling and how can we avoid over-fitting in decision trees?](#4-what-are-the-key-parameters-of-tree-modeling-and-how-can-we-avoid-over-fitting-in-decision-trees)
+    - [Setting Constraints on Tree Size](#setting-constraints-on-tree-size)
+    - [Tree Pruning](#tree-pruning)
+  - [5. Are tree based models better than linear models?](#5-are-tree-based-models-better-than-linear-models)
+  - [6. Working with Decision Trees in R and Python](#6-working-with-decision-trees-in-r-and-python)
 
 <!-- tocstop -->
 
@@ -56,7 +56,7 @@ In this technique, we split the population or sample into two or more homogeneou
 
 ## 2. Regression Trees vs Classification Trees
 
-1. Regression trees are used when dependent variable is continuous. 
+1. Regression trees are used when dependent variable is continuous.
 2. Classification trees are used when dependent variable is categorical.
 3. In case of regression tree, the value obtained by terminal nodes in the training data is the mean response of observation falling in that region. Thus, if an unseen data observation falls in that region, we’ll make its prediction with mean value.
 4. In case of classification tree, the value (class) obtained by terminal node in the training data is the mode of observations falling in that region. Thus, if an unseen data observation falls in that region, we’ll make its prediction with mode value.
@@ -68,7 +68,7 @@ Decision tree splits the nodes on all available variables and then selects the s
 The algorithm selection is also based on type of target variables. Let’s look at the four most commonly used algorithms in decision tree:
 
  ### Gini Index
- 
+
  Gini index says, if we select two items from a population at random then they must be of same class and probability for this is 1 if population is pure.
 
 1. It works with categorical target variable “Success” or “Failure”.
@@ -118,9 +118,9 @@ Here p and q is probability of success and failure respectively in that node. En
 
 Reduction in variance is an algorithm used for continuous target variables (regression problems). This algorithm uses the standard formula of variance to choose the best split. The split with lower variance is selected as the criteria to split the population:
 
-$
+$$
 Variance = \frac{\sum_{} (X - \bar X)^2}{n}
-$
+$$
 
 Above X-bar is mean of the values, X is actual and n is number of values.
 
@@ -131,7 +131,7 @@ Above X-bar is mean of the values, X is actual and n is number of values.
 
 ## 4. What are the key parameters of tree modeling and how can we avoid over-fitting in decision trees?
 
-Overfitting is one of the key challenges faced while modeling decision trees. We can prevent it by 
+Overfitting is one of the key challenges faced while modeling decision trees. We can prevent it by
 
 1. Setting constraints on tree size
 2. Tree pruning
@@ -185,10 +185,10 @@ For R users, there are multiple packages available to implement decision tree su
 ```R
 > library(rpart)
 > x <- cbind(x_train,y_train)
-# grow tree 
+# grow tree
 > fit <- rpart(y_train ~ ., data = x,method="class")
 > summary(fit)
-#Predict Output 
+#Predict Output
 > predicted= predict(fit,x_test)
 ```
 In the code above:
@@ -196,7 +196,7 @@ In the code above:
 - y_train – represents dependent variable.
 - x_train – represents independent variable
 - x – represents training data.
- 
+
 
 For Python users, below is the code:
 
@@ -205,8 +205,8 @@ For Python users, below is the code:
 #Import other necessary libraries like pandas, numpy...
 from sklearn import tree
 #Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset
-# Create tree object 
-model = tree.DecisionTreeClassifier(criterion='gini') # for classification, here you can change the algorithm as gini or entropy (information gain) by default it is gini  
+# Create tree object
+model = tree.DecisionTreeClassifier(criterion='gini') # for classification, here you can change the algorithm as gini or entropy (information gain) by default it is gini
 # model = tree.DecisionTreeRegressor() for regression
 # Train the model using the training sets and check score
 model.fit(X, y)
@@ -214,13 +214,3 @@ model.score(X, y)
 #Predict Output
 predicted= model.predict(x_test)
 ```
-
-
-
-
-
-
-
-
-
-

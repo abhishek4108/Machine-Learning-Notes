@@ -11,7 +11,7 @@ Some of the commonly used ensemble methods include: Bagging, Boosting and Stacki
 
 Bagging is a technique used to reduce the variance of our predictions by combining the result of multiple classifiers modeled on different sub-samples of the same data set. The following figure will make it clearer:
 
-![](images\bagging.png?raw=true)
+![](images/bagging.png)
 
 The steps followed in bagging are:
 
@@ -40,7 +40,7 @@ It works in the following manner. Each tree is planted & grown as follows:
 3. Each tree is grown to the largest extent possible and  there is no pruning.
 4. Predict new data by aggregating the predictions of the ntree trees (i.e., majority votes for classification, average for regression).
 
-![](images\randomforest.png?raw=true =600x)
+![](images\randomforest.png)
 
 ### Advantages of Random Forest
 
@@ -78,7 +78,7 @@ predicted= model.predict(x_test)
 # Fitting model
 > fit <- randomForest(Species ~ ., x,ntree=500)
 > summary(fit)
-#Predict Output 
+#Predict Output
 > predicted= predict(fit,x_test)
 ```
 
@@ -104,8 +104,3 @@ Step 2: If there is any prediction error caused by first base learning algorithm
 Step 3: Iterate Step 2 till the limit of base learning algorithm is reached or higher accuracy is achieved.
 
 Boosting pays higher focus on examples which are mis-classiﬁed or have higher errors by preceding weak rules.
-
-
-
-
-
