@@ -20,7 +20,7 @@ In simple words, it predicts the probability of occurrence of an event by fittin
 
 Below is an example logistic regression equation:
 
-y = e^(b0 + b1*x) / (1 + e^(b0 + b1*x))
+y = e^(b0 + b1 * x) / (1 + e^(b0 + b1 * x))
 
 Where y is the predicted output, b0 is the bias or intercept term and b1 is the coefficient for the single input value (x). Each column in your input data has an associated b coefficient (a constant real value) that must be learned from your training data
 
@@ -30,11 +30,11 @@ Logistic regression models the probability of the default class (e.g. the first 
 
 we are modeling the probability that an input (X) belongs to the default class (Y=1), we can write this formally as:
 
-P(X) = P(Y=1|X
+P(X) = P(Y=1|X)
 
 Logistic regression is a linear method, but the predictions are transformed using the logistic function.
 
-p(X) = e^(b0 + b1*X) / (1 + e^(b0 + b1*X))
+p(X) = e^(b0 + b1 * X) / (1 + e^(b0 + b1 * X))
 
 ln(p(X) / 1 – p(X)) = b0 + b1 * X
 
@@ -56,13 +56,13 @@ The intuition for maximum-likelihood for logistic regression is that a search pr
 
 ## Types of Logistic Regression
 
-1. Binary Logistic Regression
+1. Binary Logistic Regression<br/>
 The categorical response has only two 2 possible outcomes. Example: Spam or Not
-<br>
-2. Multinomial Logistic Regression
+<br/>
+2. Multinomial Logistic Regression<br/>
 Three or more categories without ordering. Example: Predicting which food is preferred more (Veg, Non-Veg, Vegan)
-<br>
-3. Ordinal Logistic Regression
+<br/>
+3. Ordinal Logistic Regression<br/>
 Three or more categories with ordering. Example: Movie rating from 1 to 5
 
 ## Performance of Logistics Regression Model
@@ -87,6 +87,4 @@ Receiver Operating Characteristic(ROC) summarizes the model’s performance by e
 
 The area under curve (AUC), referred to as index of accuracy(A) or concordance index, is a perfect performance metric for ROC curve. Higher the area under curve, better the prediction power of the model. Below is a sample ROC curve. The ROC of a perfect predictive model has TP equals 1 and FP equals 0. This curve will touch the top left corner of the graph.
 
-![](images/roc.png?raw=true =400x)
-
-
+![](images/roc.png?raw=true)
