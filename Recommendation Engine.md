@@ -6,32 +6,32 @@ Provide the most relevant and accurate items to the user by filtering useful stu
 [Comprehensive Guide - Python](https://www.analyticsvidhya.com/blog/2018/06/comprehensive-guide-recommendation-engine-python/)
 
 
-## How a recommendation engine works?
+# How a recommendation engine works?
 <!-- toc -->
 
 - [Recommendation Engine](#recommendation-engine)
-  - [How a recommendation engine works?](#how-a-recommendation-engine-works)
-    - [1. Data Collection](#1-data-collection)
-    - [2. Data Storage](#2-data-storage)
-    - [3. Filtering](#3-filtering)
-      - [3.1 Content Based Recommendations](#31-content-based-recommendations)
-      - [3.2 Collaborative Filtering](#32-collaborative-filtering)
-        - [3.2.1 User-User collaborative filtering](#321-user-user-collaborative-filtering)
-        - [3.2.2 Item-Item collaborative filtering](#322-item-item-collaborative-filtering)
+- [How a recommendation engine works?](#how-a-recommendation-engine-works)
+  - [1. Data Collection](#1-data-collection)
+  - [2. Data Storage](#2-data-storage)
+  - [3. Filtering](#3-filtering)
+    - [3.1 Content Based Recommendations](#31-content-based-recommendations)
+    - [3.2 Collaborative Filtering](#32-collaborative-filtering)
+      - [3.2.1 User-User collaborative filtering](#321-user-user-collaborative-filtering)
+      - [3.2.2 Item-Item collaborative filtering](#322-item-item-collaborative-filtering)
 
 <!-- tocstop -->
-### 1. Data Collection
+## 1. Data Collection
 
 - **Explicitly** - Explicit data is information that is provided intentionally, i.e. input from the users such as movie ratings. e.g. Netflix
 - **Implicitly** - Implicit data is information that is not provided intentionally but gathered from available data streams like search history, clicks, order history, etc. e.g. Amazon
 
-### 2. Data Storage
+## 2. Data Storage
 
-### 3. Filtering
+## 3. Filtering
 
 After collecting and storing the data, we have to filter it so as to extract the relevant information required to make the final recommendations.
 
-#### 3.1 Content Based Recommendations
+### 3.1 Content Based Recommendations
 
 Content based systems, recommends item based on a similarity comparison between the content of the items and a user’s profile. The feature of items are mapped with feature of users in order to obtain user – item similarity.
 
@@ -53,11 +53,11 @@ $$
 
 A major drawback of this algorithm is that it is limited to recommending items that are of the same type. It will never recommend products which the user has not bought or liked in the past. It lacks in detecting inter dependencies or complex behaviors.
 
-#### 3.2 Collaborative Filtering
+### 3.2 Collaborative Filtering
 
 Collaborative Filtering algorithm considers “User Behaviour” for recommending items. They exploit behaviour of other users and items in terms of transaction history, ratings, selection and purchase information. Other users behaviour and preferences over the items are used to recommend items to the new users. In this case, features of the items are not known.
 
-##### 3.2.1 User-User collaborative filtering
+#### 3.2.1 User-User collaborative filtering
 This algorithm first finds the similarity score between users. Based on this similarity score, it then picks out the most similar users and recommends products which these similar users have liked or bought previously.
 
 The prediction of an item for a user u is calculated by computing the weighted sum of the user ratings given by other users to an item i.
@@ -86,7 +86,7 @@ This algorithm is quite time consuming as it involves calculating the similarity
 This algorithm is useful when the number of users is less. Its not effective when there are a large number of users as it will take a lot of time to compute the similarity between all user pairs.
 
 
-##### 3.2.2 Item-Item collaborative filtering
+#### 3.2.2 Item-Item collaborative filtering
 
 In this algorithm, we compute the similarity between each pair of items.
 In movie case, we will find the similarity between each movie pair and based on that, we will recommend similar movies which are liked by the users in the past.
