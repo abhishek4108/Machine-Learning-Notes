@@ -1,9 +1,11 @@
 # Ensemble Decision Trees
 
 <br>
+<!-- toc -->
+
 - [Ensemble Decision Trees](#ensemble-decision-trees)
   - [1. What are ensemble methods in tree based modeling ?](#1-what-are-ensemble-methods-in-tree-based-modeling)
-    - [2. What is Bagging? How does it work?](#2-what-is-bagging-how-does-it-work)
+  - [2. What is Bagging? How does it work?](#2-what-is-bagging-how-does-it-work)
   - [3. What is Random Forest ? How does it work?](#3-what-is-random-forest--how-does-it-work)
     - [How it works?](#how-it-works)
     - [Advantages of Random Forest](#advantages-of-random-forest)
@@ -13,12 +15,14 @@
   - [4. What is Boosting ? How does it work?](#4-what-is-boosting--how-does-it-work)
     - [How does it work?](#how-does-it-work)
 
+<!-- tocstop -->
+
 ## 1. What are ensemble methods in tree based modeling ?
 Ensemble methods involve group of predictive models to achieve a better accuracy and model stability. Ensemble methods are known to impart supreme boost to tree based models.
 
 Some of the commonly used ensemble methods include: Bagging, Boosting and Stacking.
 
-### 2. What is Bagging? How does it work?
+## 2. What is Bagging? How does it work?
 
 Bagging is a technique used to reduce the variance of our predictions by combining the result of multiple classifiers modeled on different sub-samples of the same data set. The following figure will make it clearer:
 

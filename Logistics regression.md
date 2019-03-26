@@ -1,10 +1,10 @@
-# Logistics Regression
+# Logistic Regression
 
 <br>
 <!-- toc -->
 
-- [Logistics Regression](#logistics-regression)
-  - [What is a logistics regression?](#what-is-a-logistics-regression)
+- [Logistic Regression](#logistic-regression)
+  - [What is a logistic regression?](#what-is-a-logistic-regression)
   - [Logistic Regression Predicts Probabilities](#logistic-regression-predicts-probabilities)
   - [Learning the Logistic Regression Model](#learning-the-logistic-regression-model)
   - [Types of Logistic Regression](#types-of-logistic-regression)
@@ -14,7 +14,7 @@
 
 <!-- tocstop -->
 
-## What is a logistics regression?
+## What is a logistic regression?
 Logistic Regression is a classification algorithm. It is used to predict a binary outcome (1 / 0, Yes / No, True / False) given a set of independent variables.
 
 In simple words, it predicts the probability of occurrence of an event by fitting data to a logit function.
@@ -57,14 +57,12 @@ The intuition for maximum-likelihood for logistic regression is that a search pr
 
 ## Types of Logistic Regression
 
-1. Binary Logistic Regression<br/>
-The categorical response has only two 2 possible outcomes. Example: Spam or Not
-<br/>
-2. Multinomial Logistic Regression<br/>
-Three or more categories without ordering. Example: Predicting which food is preferred more (Veg, Non-Veg, Vegan)
-<br/>
-3. Ordinal Logistic Regression<br/>
-Three or more categories with ordering. Example: Movie rating from 1 to 5
+1. Binary Logistic Regression
+   The categorical response has only two 2 possible outcomes. Example: Spam or Not
+2. Multinomial Logistic Regression
+   Three or more categories without ordering. Example: Predicting which food is preferred more (Veg, Non-Veg, Vegan)
+3. Ordinal Logistic Regression
+   Three or more categories with ordering. Example: Movie rating from 1 to 5
 
 ## Performance of Logistics Regression Model
 

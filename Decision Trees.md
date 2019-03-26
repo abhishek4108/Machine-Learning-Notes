@@ -101,7 +101,7 @@ It is an algorithm to find out the statistical significance between the differen
 
 Information theory is a measure to define this degree of disorganization in a system known as Entropy. If the sample is completely homogeneous, then the entropy is zero and if the sample is an equally divided (50% – 50%), it has entropy of one.
 
-Entropy can be calculated using formula:-
+Entropy can be calculated using formula:- <br />
 $$
 Entropy = -plog_2p - qlog_2p
 $$
@@ -116,7 +116,7 @@ Here p and q is probability of success and failure respectively in that node. En
 
 ### Reduction in Variance
 
-Reduction in variance is an algorithm used for continuous target variables (regression problems). This algorithm uses the standard formula of variance to choose the best split. The split with lower variance is selected as the criteria to split the population:
+Reduction in variance is an algorithm used for continuous target variables (regression problems). This algorithm uses the standard formula of variance to choose the best split. The split with lower variance is selected as the criteria to split the population: <br />
 
 $$
 Variance = \frac{\sum_{} (X - \bar X)^2}{n}

@@ -20,7 +20,7 @@
 Wiki link - [Oversampling and undersampling in data analysis](https://en.wikipedia.org/wiki/Oversampling_and_undersampling_in_data_analysis)
 
 **Some Rules of Thumb**
-- Consider testing under-sampling when you have an a lot data (tens- or hundreds of thousands of instances or more)
+- Consider testing under-sampling when you have a lot of data (tens- or hundreds of thousands of instances or more)
 - Consider testing over-sampling when you don’t have a lot of data (tens of thousands of records or less)
 - Consider testing random and non-random (e.g. stratified) sampling schemes.
 - Consider testing different resampled ratios (e.g. you don’t have to target a 1:1 ratio in a binary classification problem, try other ratios)
@@ -47,8 +47,3 @@ Penalized classification imposes an additional cost on the model for making clas
 ## **7. Try a Different Perspective**
 
 Two you might like to consider are **anomaly detection** and **change detection**
-
-
-
-
-
